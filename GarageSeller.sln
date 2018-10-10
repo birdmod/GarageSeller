@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GarageSeller.Models", "GarageSeller.Models\GarageSeller.Models.csproj", "{BC7D72D9-E5AD-4146-A924-719F9C3864C5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GarageSeller.Context", "GarageSeller.DbContext\GarageSeller.Context.csproj", "{C1437D3B-1D06-484A-949A-1B08C1FF8747}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GarageSeller.Context.Interfaces", "GarageSeller.DbContext.Interfaces\GarageSeller.Context.Interfaces.csproj", "{2CACA544-5B4F-4358-B81D-AD47B2DD5E89}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GarageSeller.SampleApi", "GarageSeller.SampleApi\GarageSeller.SampleApi.csproj", "{F59B3713-0958-4FCD-A899-05E0A8AE1146}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GarageSeller.Api.Models", "GarageSeller.Api.Models\GarageSeller.Api.Models.csproj", "{0B8C4D04-9668-4194-9FE4-A015F9C8A0FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B25DCBE4-8A4B-4FBF-BB58-35A05F7D9178}"
+	ProjectSection(SolutionItems) = preProject
+		GarageSeller.Models\api.yaml = GarageSeller.Models\api.yaml
+		GarageSeller.Models\apiv2.yaml = GarageSeller.Models\apiv2.yaml
+		IMPROVEMENTS.txt = IMPROVEMENTS.txt
+		TODO.txt = TODO.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC7D72D9-E5AD-4146-A924-719F9C3864C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC7D72D9-E5AD-4146-A924-719F9C3864C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC7D72D9-E5AD-4146-A924-719F9C3864C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC7D72D9-E5AD-4146-A924-719F9C3864C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1437D3B-1D06-484A-949A-1B08C1FF8747}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1437D3B-1D06-484A-949A-1B08C1FF8747}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1437D3B-1D06-484A-949A-1B08C1FF8747}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1437D3B-1D06-484A-949A-1B08C1FF8747}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CACA544-5B4F-4358-B81D-AD47B2DD5E89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CACA544-5B4F-4358-B81D-AD47B2DD5E89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CACA544-5B4F-4358-B81D-AD47B2DD5E89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CACA544-5B4F-4358-B81D-AD47B2DD5E89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F59B3713-0958-4FCD-A899-05E0A8AE1146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F59B3713-0958-4FCD-A899-05E0A8AE1146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F59B3713-0958-4FCD-A899-05E0A8AE1146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F59B3713-0958-4FCD-A899-05E0A8AE1146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B8C4D04-9668-4194-9FE4-A015F9C8A0FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B8C4D04-9668-4194-9FE4-A015F9C8A0FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B8C4D04-9668-4194-9FE4-A015F9C8A0FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B8C4D04-9668-4194-9FE4-A015F9C8A0FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {588A7C0E-F9F4-4E15-8E6C-0AD8AB4ADCEB}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,350 @@
+﻿swagger: "2.0"
+info:
+  title: GarageSeller
+  version: v1
+
+paths: 
+  '/garages':
+    put:
+      summary: Creates a garage
+      description: This operation creates a garage
+      operationId: createGarage
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: garageInfo
+          required: true
+          schema:
+            $ref: '#/definitions/GarageInfo'
+      responses:
+        201:
+          $ref: '#/responses/Created'
+          
+    get:
+      summary: Retrieves all garages
+      operationId: GetAllGarages
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: List of garages
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Garage'
+
+  '/garages/{garageId}':
+    post:
+      summary: Update a garage
+      description: This operation updates a garage
+      operationId: updateGarage
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: garageId
+          type: integer
+          required: true
+        - in: body
+          name: contactInfo
+          required: true
+          schema:
+            $ref: '#/definitions/ContactInfo'
+      responses:
+        204:
+          $ref: '#/responses/NoContent'
+          
+    get:
+      summary: Retrieves a garage
+      operationId: GetGarageById
+      parameters:
+        - in: path
+          name: garageId
+          type: integer
+          required: true
+      produces:
+        - application/json
+      responses:
+        200:
+          $ref: '#/definitions/Garage'
+
+  '/sellers':
+    put:
+      summary: Creates a seller
+      description: This operation creates a seller
+      operationId: createSeller
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: sellerInfo
+          required: true
+          schema:
+            $ref: '#/definitions/SellerInfo'
+      responses:
+        201:
+          $ref: '#/responses/Created'
+          
+    get:
+      summary: Retrieves all sellers
+      operationId: GetAllSellers
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: List of sellers
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Seller'
+
+  '/seller/{sellerId}':
+    post:
+      summary: Update a seller
+      description: This operation updates a seller
+      operationId: updateSeller
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: sellerId
+          type: integer
+          required: true
+        - in: body
+          name: contactInfo
+          required: true
+          schema:
+            $ref: '#/definitions/ContactInfo'
+      responses:
+        204:
+          $ref: '#/responses/NoContent'
+          
+    get:
+      summary: Retrieves a seller
+      operationId: GetSellerById
+      parameters:
+        - in: path
+          name: sellerId
+          type: integer
+          required: true
+      produces:
+        - application/json
+      responses:
+        200:
+          $ref: '#/definitions/Seller'
+
+  '/cars':
+    put:
+      summary: Creates a car
+      description: This operation creates a car
+      operationId: createCar
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: carInfo
+          required: true
+          schema:
+            $ref: '#/definitions/CarInfo'
+      responses:
+        '201':
+          $ref: '#/responses/Created'
+          
+    get:
+      summary: Retrieves all cars
+      operationId: GetAllCars
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: List of cars
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Car'
+          
+  '/car/{carId}':
+    post:
+      summary: Update a car
+      description: This operation updates a car
+      operationId: updateCar
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: carId
+          type: integer
+          required: true
+        - in: body
+          name: details
+          schema:
+            type: object
+            properties:
+              price:
+                type: number
+                format: float
+              comment:
+                type: string
+            required: 
+              - price
+      responses:
+        '204':
+          $ref: '#/responses/NoContent'
+    get:
+      summary: Retrieves a car
+      operationId: GetCarById
+      parameters:
+        - in: path
+          name: carId
+          type: integer
+          required: true
+      produces:
+        - application/json
+      responses:
+        '200':
+          $ref: '#/definitions/Car'
+                
+
+
+responses:
+  Created:
+    description: Created
+    headers:
+      Location: 
+        type: string
+        description: Link to get the created resource
+  NoContent:
+    description: 'OK with no content'
+
+definitions:
+  GarageName:
+    properties:
+      garageName:
+        type: string
+        maxLength: 32
+        minLength: 5
+    required: 
+      - garageName
+        
+  ContactInfo:
+    properties: 
+      phone: 
+        type: string
+        description: "Phone format will be validated on server side"
+      email: 
+        type: string
+        description: "Email format will be validated on server side"
+      address:
+        type: string
+        maxLength: 50
+        minLength: 5
+    required: 
+      - address
+      - email
+      - phone
+        
+  GarageInfo:
+    allOf:
+      - $ref: '#/definitions/GarageName'
+      - $ref: '#/definitions/ContactInfo'
+      - type: object
+          
+  Garage:
+    allOf:
+      - $ref: '#/definitions/GarageInfo'
+      - type: object
+        properties: 
+          id: 
+            type: integer
+        required:
+          - id
+
+  CarInfo:
+    required:
+      - model
+      - year
+      - price
+      - serialNumber
+      - soldDateUtc
+      - transmission
+      - motor
+      - garageId
+      - sellerId
+    properties:
+      model:
+        type: string
+        maxLength: 50
+        minLength: 3
+      year: 
+        type: integer
+      price:
+        type: number
+        format: float
+      serialNumber:
+        type: string
+      soldDateUtc:
+        type: string
+        format: date
+      comment:
+        type: string
+      transmission: 
+        $ref: '#/definitions/Transmission'
+      motor:
+        $ref: '#/definitions/Motor'
+      garageId:
+        type: integer
+      sellerId: 
+        type: integer
+
+  Car:
+    allOf:
+      - $ref: '#/definitions/CarInfo'
+      - type: object
+        properties:
+          id:
+            type: integer
+        required:
+          - id
+
+  SellerInfo:
+    allOf:
+      - $ref: '#/definitions/ContactInfo'
+      - type: object
+        properties:
+          firstName:
+            type: string
+            maxLength: 50
+            minLength: 1
+          lastName:
+            type: string
+            maxLength: 50
+            minLength: 1
+        required:
+          - firstName
+          - lastName
+      
+  Seller:
+    allOf:
+      - $ref: '#/definitions/SellerInfo'
+      - type: object
+        properties:
+          id:
+            type: integer
+        required: 
+          - id
+
+  Motor:
+    type: string
+    enum: 
+      - diesel
+      - petrol
+      - hybrid
+      - electric
+
+  Transmission:
+    type: string 
+    enum: 
+      - manual
+      - automatic
+      
