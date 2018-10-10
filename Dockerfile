@@ -29,8 +29,6 @@
 # ENTRYPOINT ["dotnet", "GarageSeller.SampleApi.dll"]
 
 
-
-# version avec pdb en plus car le build est debug pour les projets intermediaires
 FROM microsoft/dotnet:sdk AS build-env
 WORKDIR /app
 WORKDIR /src
