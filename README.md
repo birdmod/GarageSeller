@@ -9,3 +9,7 @@ the API with Swagger.
 - Entity Framework code first
 - Docker
 - Swagger / Open Api Specification
+
+Improvements: 
+- docker-compose.yml to reveal the sql server express used in prod
+- integration of nswag or swashbuckle to expose the swagger ui interface - for the moment, the API specification is provided
