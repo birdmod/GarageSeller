@@ -28,7 +28,7 @@ namespace GarageSeller.SampleApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<GarageSellerContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("DockerConnection")));
+                options => options.UseSqlServer(Configuration.GetConnectionString("DockerComposeConnection")));
 
             /// PAUSE !
             /// 
